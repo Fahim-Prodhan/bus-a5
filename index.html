@@ -12,19 +12,18 @@
     @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
-    .font-raleway{
+    .font-raleway {
       font-family: "Raleway", sans-serif;
-      
     }
 
-    .font-inter{
+    .font-inter {
       font-family: "Inter", sans-serif;
     }
   </style>
 </head>
 
 <body class="font-raleway">
-  <header class="mt-[24px] lg:mt-[55px] lg:mx-[135px]">
+  <header class="mt-[24px] mx-4 lg:mt-[55px] lg:mx-[135px]">
 
     <!-- nav bar -->
     <nav class="mb-9">
@@ -55,22 +54,72 @@
           </ul>
         </div>
         <div class="navbar-end">
-          <a class="btn px-7 py-4 bg-[#1dd1001a] text-[#1DD100] text-[20px] font-bold">Bus<i class="fa-solid fa-van-shuttle"></i></a>
+          <a class="btn px-7 py-4 bg-[#1dd1001a] text-[#1DD100] text-[20px] font-bold">Bus<i
+              class="fa-solid fa-van-shuttle"></i></a>
         </div>
       </div>
     </nav>
 
     <!-- header image -->
-    <div class="h-[550px] rounded-[32px]" style="background:linear-gradient(180deg, rgba(3, 7, 18, 0.50) 0%, rgba(3, 7, 18, 0.00) 100%), url('images/banner.png'), lightgray 50% / cover no-repeat; background-position: center; background-repeat: no-repeat; background-size: cover;">
-      <h1 class="pt-[70px] text-center text-white text-6xl font-extrabold">End-to-End Travel with</h1>
-      <h1 class="text-[#1DD100] text-center text-6xl font-extrabold pt-4">PariSheba</h1>
-      <p class="text-center text-[#fff] pt-4">Yes, you can run unit tests and view the results directly within the app. The <br>integrated testing features allow for a streamlined .</p>
+    <div class="h-[550px] rounded-[32px]"
+      style="background:linear-gradient(180deg, rgba(3, 7, 18, 0.50) 0%, rgba(3, 7, 18, 0.00) 100%), url('images/banner.png'), lightgray 50% / cover no-repeat; background-position: center; background-repeat: no-repeat; background-size: cover;">
+      <h1 class="pt-[70px] text-center text-white text-5xl lgtext-6xl font-extrabold leading-[70px]">End-to-End Travel
+        with</h1>
+      <h1 class="text-[#1DD100] text-center text-5xl lg:text-6xl font-extrabold lg:pt-4">PariSheba</h1>
+      <p class="text-center text-[#fff] pt-4">Yes, you can run unit tests and view the results directly within the app.
+        The <br>integrated testing features allow for a streamlined .</p>
       <div class="text-center pt-8">
         <button class="btn px-7 bg-[#1DD100] text-[20px] font-bold border-none">Buy Tickets</button>
       </div>
     </div>
   </header>
   <main>
+    <!-- Best offers for you -->
+    <section class="mx-4  lg:mx-[135px] mt-[120px]">
+      <h1 class="text-4xl font-bold text-center">Best offers for you</h1>
+
+      <div class="flex flex-col lg:flex-row gap-6 mt-12">
+
+        <!-- first coupon -->
+        <div class="bg-[#FFBF0F] lg:w-1/2 h-[220px] rounded-[24px]">
+          <div>
+            <img class="ml-[200px] lg:ml-[315px]" src="images/cupon-devider.png" alt="">
+          </div>
+          <div class="flex justify-around relative top-[-160px]">
+            <div>
+              <h1 class="font-inter text-4xl font-black text-[#030712cc]">15% OFF</h1>
+              <p class="font-inter text-[20px] text-[#030712cc] pt-2">on your next purchase</p>
+              <p class="font-inter text-[18px] text-[#03071280] pt-2">use by January 2024</p>
+            </div>
+            <div>
+              <h1 class="text-[#030712] pt-[20px] text-[32px] font-bold">NEW15</h1>
+              <p class="text-[#03071266] mt-1">Coupon Code</p>
+            </div>
+          </div>
+        </div>
+
+                <!-- second coupon -->
+        <div class="bg-[#F78C9C] lg:w-1/2 h-[220px] rounded-[24px]">
+          <div>
+            <img class="ml-[200px] lg:ml-[315px]" src="images/cupon-devider.png" alt="">
+          </div>
+          <div class="flex justify-around relative top-[-160px]">
+            <div>
+              <h1 class="font-inter text-4xl font-black text-[#030712cc]">20% OFF</h1>
+              <p class="font-inter text-[20px] text-[#030712cc] pt-2">on your next purchase</p>
+              <p class="font-inter text-[18px] text-[#03071280] pt-2">use by January 2024</p>
+            </div>
+            <div>
+              <h1 class="text-[#030712] pt-[20px] text-[32px] font-bold">Couple 20</h1>
+              <p class="text-[#03071266] mt-1">Coupon Code</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-[60px]">
+        <button class="border-solid border-2 border-[#1DD100] text-[#1DD100] rounded-xl px-7 py-4 font-bold text-[20px]">See All Offers</button>
+      </div>
+    </section>
 
   </main>
   <footer>
