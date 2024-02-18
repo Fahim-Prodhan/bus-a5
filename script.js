@@ -15,6 +15,7 @@ for (const seat of allSeats) {
         seatDetails.classList.remove("bg-[#F7F8F8]");
         seatDetails.classList.add("bg-[#1DD100]");
         seatDetails.classList.add("text-white");
+        seatDetails.classList.remove("opacity-50");
         seatLeftElement.innerText = currentSeatLeft = currentSeatLeft - 1;
 
         // showing seat details
@@ -59,35 +60,74 @@ for (const seat of allSeats) {
         const grandPriceElement = document.getElementById("grandPrice");
         let granPrice = 550 * selectedSeats.length;
         grandPriceElement.innerText = granPrice;
+
         //coupon logic
         document.getElementById("coupon").addEventListener("keyup", (event) => {
           const coupon = event.target.value;
           const applyButton = document.getElementById("apply-btn");
-          console.log(coupon);
 
           //NEW15 Coupon
           if (selectedSeats.length == 4 && coupon == "NEW15") {
-            applyButton.removeAttribute("disabled");
+            applyButton.removeAttribute('disabled');
+            applyButton.classList.remove('bg-gray-300')
+            applyButton.classList.add('bg-[#1DD100]')
             applyButton.addEventListener("click", () => {
             const grandTotal = (550 * 4) - ((550 * 4) * (15 / 100));
             const grandPriceElement = document.getElementById("grandPrice");
             grandPriceElement.innerText = grandTotal;
+
+            //discount section
+            const discountElement = document.getElementById('discount')
+            discountElement.classList.remove('hidden')
+            const discountPrice = ((550 * 4) * (15 / 100))
+            const DiscountPriceElement = document.getElementById("discountPrice");
+            DiscountPriceElement.innerText = discountPrice
+
+            //hide apply section
+            const applySection = document.getElementById('apply-section')
+            applySection.classList.add('hidden')
+            
             });
-          } else {
-                applyButton.setAttribute("disabled", true);
-          }
-          //Couple 20 Coupon
-          if (selectedSeats.length == 4 && coupon == "Couple 20") {
+          }else if(selectedSeats.length == 4 && coupon == "Couple 20") {
             applyButton.removeAttribute("disabled");
+            applyButton.classList.remove('bg-gray-300')
+            applyButton.classList.add('bg-[#1DD100]')
             applyButton.addEventListener("click", () => {
             const grandTotal = (550 * 4) - ((550 * 4) * (20 / 100));
             const grandPriceElement = document.getElementById("grandPrice");
             grandPriceElement.innerText = grandTotal;
+            
+            //discount section
+            const discountElement = document.getElementById('discount')
+            discountElement.classList.remove('hidden')
+            const discountPrice = ((550 * 4) * (20 / 100))
+            const DiscountPriceElement = document.getElementById("discountPrice");
+            DiscountPriceElement.innerText = discountPrice
+            
+            //hide apply section 
+            const applySection = document.getElementById('apply-section')
+            applySection.classList.add('hidden')
             });
-          } else {
+          }else {
                 applyButton.setAttribute("disabled", true);
+                applyButton.classList.add('bg-gray-300')
           }
         });
+
+        //next button logic
+        document.getElementById('phone').addEventListener('keyup',(e)=>{
+            let phone = e.target.value        
+            const nextButton = document.getElementById('next-btn')
+            if(!phone == '' ) {
+                nextButton.removeAttribute("disabled");
+                nextButton.classList.remove('bg-gray-300')
+                nextButton.classList.add('bg-[#1DD100]')
+            }else {
+                nextButton.setAttribute("disabled", true);
+                nextButton.classList.add('bg-gray-300')
+          }
+        })
+
       } else {
         alert("seat already selected");
       }
@@ -96,3 +136,20 @@ for (const seat of allSeats) {
     }
   });
 }
+
+document.getElementById('next-btn').addEventListener('click', ()=>{
+    const successMsg = document.getElementById('success-msg')
+    successMsg.classList.remove('hidden')
+
+    const headerSection = document.getElementById('header')
+    const mainSection = document.getElementById('main')
+    headerSection.classList.add('hidden')
+    mainSection.classList.add('hidden')
+    
+})
+document.getElementById('continue-btn').addEventListener('click', ()=>{
+    location.reload();
+    
+})
+
+
