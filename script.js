@@ -4,6 +4,7 @@ let selectedSeats = [];
 
 let seatLeftElement = document.getElementById("seats-left");
 let currentSeatLeft = parseInt(seatLeftElement.innerText);
+const applyButton = document.getElementById("apply-btn");
 
 for (const seat of allSeats) {
   seat.addEventListener("click", (e) => {
@@ -62,71 +63,18 @@ for (const seat of allSeats) {
         grandPriceElement.innerText = granPrice;
 
         //coupon logic
-        const applyButton = document.getElementById("apply-btn");
         if(selectedSeats.length == 4 ){        
             applyButton.removeAttribute('disabled');
             applyButton.classList.remove('bg-gray-300')
             applyButton.classList.add('bg-[#1DD100]')
-                //NEW15 Coupon
-                            
-                  applyButton.addEventListener("click", () => {
-                    const couponElement = document.getElementById("coupon")
-                    const coupon = couponElement.value;
-                    // console.log(coupon);
-                    if (coupon == "NEW15") {
-                        const grandTotal = (550 * 4) - ((550 * 4) * (15 / 100));
-                        const grandPriceElement = document.getElementById("grandPrice");
-                        grandPriceElement.innerText = grandTotal;
-            
-                        //discount section
-                        const discountElement = document.getElementById('discount')
-                        discountElement.classList.remove('hidden')
-                        const discountPrice = ((550 * 4) * (15 / 100))
-                        const DiscountPriceElement = document.getElementById("discountPrice");
-                        DiscountPriceElement.innerText = discountPrice
-            
-                        //hide apply section
-                        const applySection = document.getElementById('apply-section')
-                        applySection.classList.add('hidden')
-                        
-                    }else if(coupon == "Couple 20"){
-                        const grandTotal = (550 * 4) - ((550 * 4) * (20 / 100));
-                        const grandPriceElement = document.getElementById("grandPrice");
-                        grandPriceElement.innerText = grandTotal;                  
-                        //discount section
-                        const discountElement = document.getElementById('discount')
-                        discountElement.classList.remove('hidden')
-                        const discountPrice = ((550 * 4) * (20 / 100))
-                        const DiscountPriceElement = document.getElementById("discountPrice");
-                        DiscountPriceElement.innerText = discountPrice
-                        
-                        //hide apply section 
-                        const applySection = document.getElementById('apply-section')
-                        applySection.classList.add('hidden')
-                    }else{
-                        alert("Wrong Coupon")
-                    }
-                  });
-               
+            couponLogic()            
         }else {
             applyButton.setAttribute("disabled", true);
             applyButton.classList.add('bg-gray-300')
         }
    
-
         //next button logic
-        document.getElementById('phone').addEventListener('keyup',(e)=>{
-            let phone = e.target.value        
-            const nextButton = document.getElementById('next-btn')
-            if(!phone == '' ) {
-                nextButton.removeAttribute("disabled");
-                nextButton.classList.remove('bg-gray-300')
-                nextButton.classList.add('bg-[#1DD100]')
-            }else {
-                nextButton.setAttribute("disabled", true);
-                nextButton.classList.add('bg-gray-300')
-          }
-        })
+        nextButtonLogic()
 
       } else {
         alert("seat already selected");
@@ -137,6 +85,67 @@ for (const seat of allSeats) {
   });
 }
 
+
+
+function couponLogic(){
+    applyButton.addEventListener("click", () => {
+        const couponElement = document.getElementById("coupon")
+        const coupon = couponElement.value;
+        // console.log(coupon);
+        if (coupon == "NEW15") {
+            const grandTotal = (550 * 4) - ((550 * 4) * (15 / 100));
+            const grandPriceElement = document.getElementById("grandPrice");
+            grandPriceElement.innerText = grandTotal;
+
+            //discount section
+            const discountElement = document.getElementById('discount')
+            discountElement.classList.remove('hidden')
+            const discountPrice = ((550 * 4) * (15 / 100))
+            const DiscountPriceElement = document.getElementById("discountPrice");
+            DiscountPriceElement.innerText = discountPrice
+
+            //hide apply section
+            const applySection = document.getElementById('apply-section')
+            applySection.classList.add('hidden')
+            
+        }else if(coupon == "Couple 20"){
+            const grandTotal = (550 * 4) - ((550 * 4) * (20 / 100));
+            const grandPriceElement = document.getElementById("grandPrice");
+            grandPriceElement.innerText = grandTotal;                  
+            //discount section
+            const discountElement = document.getElementById('discount')
+            discountElement.classList.remove('hidden')
+            const discountPrice = ((550 * 4) * (20 / 100))
+            const DiscountPriceElement = document.getElementById("discountPrice");
+            DiscountPriceElement.innerText = discountPrice
+            
+            //hide apply section 
+            const applySection = document.getElementById('apply-section')
+            applySection.classList.add('hidden')
+        }else{
+            alert("Wrong Coupon")
+        }
+      });
+   
+}
+
+
+
+function nextButtonLogic(){
+      //next button logic
+      document.getElementById('phone').addEventListener('keyup',(e)=>{
+        let phone = e.target.value        
+        const nextButton = document.getElementById('next-btn')
+        if(!phone == '' ) {
+            nextButton.removeAttribute("disabled");
+            nextButton.classList.remove('bg-gray-300')
+            nextButton.classList.add('bg-[#1DD100]')
+        }else {
+            nextButton.setAttribute("disabled", true);
+            nextButton.classList.add('bg-gray-300')
+      }
+    })
+}
 document.getElementById('next-btn').addEventListener('click', ()=>{
     const successMsg = document.getElementById('success-msg')
     successMsg.classList.remove('hidden')
