@@ -72,9 +72,6 @@ for (const seat of allSeats) {
             applyButton.setAttribute("disabled", true);
             applyButton.classList.add('bg-gray-300')
         }
-   
-        //next button logic
-        nextButtonLogic()
 
       } else {
         alert("seat already selected");
@@ -146,6 +143,8 @@ function nextButtonLogic(){
       }
     })
 }
+nextButtonLogic()
+
 document.getElementById('next-btn').addEventListener('click', ()=>{
     const successMsg = document.getElementById('success-msg')
     successMsg.classList.remove('hidden')
@@ -156,9 +155,11 @@ document.getElementById('next-btn').addEventListener('click', ()=>{
     mainSection.classList.add('hidden')
     
 })
+
 document.getElementById('continue-btn').addEventListener('click', ()=>{
     location.reload();
     
 })
+
 
 
